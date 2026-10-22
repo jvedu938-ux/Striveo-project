@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership | STRIVEO</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#111;
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    background:#0b0b0b;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #d4af37;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#d4af37;
+    font-size:26px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:15px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#d4af37;
+}
+
+.hero{
+    text-align:center;
+    padding:55px 20px 35px;
+}
+
+.hero h1{
+    color:#d4af37;
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#ccc;
+    font-size:16px;
+}
+
+.membership-container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:20px 0 60px;
+}
+
+.plans{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.plan{
+    background:#181818;
+    border:1px solid #444;
+    border-radius:12px;
+    padding:30px 22px;
+    text-align:center;
+    transition:.3s;
+}
+
+.plan:hover{
+    transform:translateY(-8px);
+    border-color:#d4af37;
+    box-shadow:0 0 18px rgba(212,175,55,.25);
+}
+
+.plan.popular{
+    border:2px solid #d4af37;
+}
+
+.plan h2{
+    color:#d4af37;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.price{
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.price span{
+    font-size:14px;
+    color:#aaa;
+}
+
+.plan ul{
+    list-style:none;
+    text-align:left;
+    margin:20px 0;
+}
+
+.plan ul li{
+    padding:10px 0;
+    border-bottom:1px solid #333;
+    color:#ddd;
+}
+
+.plan ul li::before{
+    content:"✓ ";
+    color:#d4af37;
+    font-weight:bold;
+}
+
+.choose-btn{
+    width:100%;
+    padding:12px;
+    background:#d4af37;
+    color:#111;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.choose-btn:hover{
+    background:#fff;
+    color:#111;
+}
+
+.current-membership{
+    margin-top:45px;
+    background:#181818;
+    border:1px solid #d4af37;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+}
+
+.current-membership h2{
+    color:#d4af37;
+    margin-bottom:12px;
+}
+
+.current-membership p{
+    color:#ccc;
+    margin:7px;
+}
+
+.status{
+    color:#5cff8d;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    border-top:1px solid #333;
+    color:#888;
+    font-size:14px;
+}
+
+@media(max-width:800px){
+    .plans{
+        grid-template-columns:1fr;
+    }
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin:0 8px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">STRIVEO</div>
+
+    <nav>
+        <a href="member.html">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <a href="Membership.html">Membership</a>
+        <a href="payment.html">Payment</a>
+        <a href="setting.html">Settings</a>
+    
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Membership Plans</h1>
+    <p>Choose the membership plan that suits your needs.</p>
+</section>
+
+<section class="membership-container">
+
+    <div class="plans">
+
+        <div class="plan">
+            <h2>Basic</h2>
+
+            <div class="price">
+                ₹499 <span>/ Month</span>
+            </div>
+
+            <ul>
+                <li>Basic Member Access</li>
+                <li>Project Browsing</li>
+                <li>Basic Support</li>
+                <li>Member Dashboard</li>
+            </ul>
+
+            <button class="choose-btn" onclick="choosePlan('Basic')">
+                Choose Plan
+            </button>
+        </div>
+
+
+        <div class="plan popular">
+            <h2>Standard</h2>
+
+            <div class="price">
+                ₹999 <span>/ Month</span>
+            </div>
+
+            <ul>
+                <li>Everything in Basic</li>
+                <li>More Project Access</li>
+                <li>Priority Support</li>
+                <li>Advanced Features</li>
+            </ul>
+
+            <button class="choose-btn" onclick="choosePlan('Standard')">
+                Choose Plan
+            </button>
+        </div>
+
+
+        <div class="plan">
+            <h2>Premium</h2>
+
+            <div class="price">
+                ₹1499 <span>/ Month</span>
+            </div>
+
+            <ul>
+                <li>Everything in Standard</li>
+                <li>Premium Projects</li>
+                <li>Premium Support</li>
+                <li>All Member Features</li>
+            </ul>
+
+            <button class="choose-btn" onclick="choosePlan('Premium')">
+                Choose Plan
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="current-membership">
+
+        <h2>Current Membership</h2>
+
+        <p>Plan: <strong id="currentPlan">No Plan Selected</strong></p>
+
+        <p>Status: <span class="status" id="status">Inactive</span></p>
+
+        <p id="membershipMessage">
+            Please select a membership plan to continue.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 STRIVEO | All Rights Reserved
+</footer>
+
+
+<script>
+
+function choosePlan(plan){
+
+    let confirmPlan = confirm(
+        "Do you want to select the " + plan + " Membership?"
+    );
+
+    if(confirmPlan){
+
+        document.getElementById("currentPlan").innerText = plan;
+        document.getElementById("status").innerText = "Selected";
+        document.getElementById("membershipMessage").innerText =
+        "You selected the " + plan + " Membership. Proceed to payment.";
+
+        localStorage.setItem("selectedMembership",plan);
+
+        setTimeout(function(){
+            window.location.href="payment.html";
+        },1000);
+    }
+}
+
+
+window.onload=function(){
+
+    let savedPlan=localStorage.getItem("selectedMembership");
+
+    if(savedPlan){
+
+        document.getElementById("currentPlan").innerText=savedPlan;
+        document.getElementById("status").innerText="Selected";
+
+        document.getElementById("membershipMessage").innerText=
+        "Your " + savedPlan + " Membership is selected.";
+    }
+
+};
+
+</script>
+
+</body>
+</html>

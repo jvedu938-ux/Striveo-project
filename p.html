@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #box{
+            width: 300px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background: white;
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        input{
+            width: 90%;
+            padding: 8px;
+        }
+
+        button{
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        body.dark{
+            background: #222;
+            color: white;
+        }
+
+        body.dark #box{
+            background: #333;
+            color: white;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+
+        <h2>Login Page</h2>
+
+        <div class="heading">
+            <label for="username">Username</label><br>
+            <input type="text" id="username"><br><br>
+        </div>
+
+        <div class="heading">
+            <label for="password">Password</label><br>
+            <input type="password" id="password"><br><br>
+        </div>
+
+        <p>Welcome to the Login Page</p>
+
+        <button onclick="karj()">Click Here</button>
+
+        <button id="theme-btn" onclick="toggleMode()">
+            Dark Mode
+        </button>
+
+    </div>
+
+    <script>
+
+        function karj() {
+
+            let id = document.querySelector("#box");
+            id.style.backgroundColor = "yellow";
+            id.style.color = "red";
+
+            let classes = document.querySelectorAll(".heading");
+
+            classes[0].style.fontStyle = "italic";
+            classes[0].style.backgroundColor = "red";
+            classes[0].style.color = "black";
+
+            classes[1].style.fontStyle = "italic";
+            classes[1].style.backgroundColor = "lightblue";
+            classes[1].style.color = "black";
+
+            let TAG = document.querySelector("p");
+            TAG.style.color = "orange";
+
+            let HEAD = document.querySelector("h2");
+            HEAD.innerText = "Login Kar Be";
+        }
+
+        function toggleMode() {
+
+            document.body.classList.toggle("dark");
+
+            const btn = document.getElementById("theme-btn");
+
+            if(document.body.classList.contains("dark")){
+                btn.innerText = "Light Mode";
+            }
+            else{
+                btn.innerText = "Dark Mode";
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

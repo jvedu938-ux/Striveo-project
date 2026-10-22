@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🚩 Ram Ram Counter</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+
+    /* Better Ram Theme */
+    background:linear-gradient(
+    135deg,
+    #1a0b05,
+    #7a1c00,
+    #c2410c,
+    #4a0d0d
+    );
+}
+
+/* Background Overlay */
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at center,
+    rgba(255,180,0,.15),
+    transparent 70%);
+    z-index:0;
+}
+
+/* Floating Ram */
+.ram-bg{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:1;
+}
+
+.ram{
+    position:absolute;
+    color:rgba(255,220,120,.28);
+    font-size:24px;
+    font-weight:bold;
+    white-space:nowrap;
+    text-shadow:0 0 10px rgba(255,170,0,.35);
+    animation:float linear forwards;
+}
+
+@keyframes float{
+    from{
+    transform:translateY(110vh) rotate(-8deg);
+    opacity:0;
+    }
+    20%{opacity:1;}
+    80%{opacity:1;}
+    to{
+    transform:translateY(-120px) rotate(8deg);
+    opacity:0;
+    }
+}
+
+/* Card */
+.container{
+    position:relative;
+    z-index:5;
+    width:360px;
+    padding:25px;
+    border-radius:24px;
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+
+    border:2px solid rgba(255,215,120,.35);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.45),
+    0 0 25px rgba(255,170,0,.15);
+
+    text-align:center;
+}
+
+.title{
+    font-size:28px;
+    color:#FFD54F;
+    margin-bottom:5px;
+    text-shadow:0 0 10px rgba(255,180,0,.4);
+}
+
+.sub{
+    color:#ffe7b3;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.counter{
+    width:130px;
+    height:130px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(145deg,#fff7e6,#ffe3b3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+    font-weight:bold;
+    color:#7a1c00;
+    border:5px solid #FFD54F;
+    box-shadow:0 0 25px rgba(255,193,7,.5);
+    margin-bottom:22px;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+}
+
+.btn{
+    flex:1;
+    padding:12px 8px;
+    border:none;
+    border-radius:12px;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px) scale(1.05);
+}
+
+.negative{
+    background:linear-gradient(135deg,#d62828,#9d0208);
+}
+
+.reset{
+    background:linear-gradient(135deg,#2d2d2d,#111);
+}
+
+.positive{
+    background:linear-gradient(135deg,#2dc653,#1b7f3b);
+}
+
+.footer{
+    margin-top:15px;
+    color:#FFD54F;
+    font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="ram-bg" id="ramBg"></div>
+
+<div class="container">
+
+    <h1 class="title">🚩 राम राम</h1>
+    <p class="sub">Spiritual Counter</p>
+
+    <div class="counter" id="count">0</div>
+
+    <div class="buttons">
+    <button class="btn negative" onclick="decrement()">
+        Negative
+    </button>
+
+    <button class="btn reset" onclick="resetCounter()">
+        Reset
+    </button>
+
+    <button class="btn positive" onclick="increment()">
+        Positive
+    </button>
+    </div>
+
+    <div class="footer">🙏 Jai Shri Ram 🙏</div>
+
+</div>
+
+<script>
+let count = 0;
+const countEl = document.getElementById("count");
+
+function update(){
+countEl.textContent = count;
+countEl.animate([
+    {transform:"scale(.8)"},
+    {transform:"scale(1.15)"},
+    {transform:"scale(1)"}
+],{
+    duration:220
+});
+}
+
+function increment(){
+count++;
+update();
+}
+
+function decrement(){
+count--;
+update();
+}
+
+function resetCounter(){
+count=0;
+update();
+}
+
+/* Floating राम राम */
+const bg=document.getElementById("ramBg");
+
+function createRam(){
+
+const span=document.createElement("span");
+
+span.className="ram";
+span.innerHTML="🚩 राम राम";
+
+span.style.left=Math.random()*100+"vw";
+span.style.fontSize=(20+Math.random()*22)+"px";
+span.style.animationDuration=(9+Math.random()*8)+"s";
+
+bg.appendChild(span);
+
+setTimeout(()=>{
+    span.remove();
+},17000);
+
+}
+
+for(let i=0;i<30;i++){
+setTimeout(createRam,i*250);
+}
+
+setInterval(createRam,350);
+</script>
+
+</body>
+</html>

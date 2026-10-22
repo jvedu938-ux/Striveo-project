@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🚩 Jai Shri Ram - Spiritual Counter</title>
+
+<style>
+:root {
+  --primary-gold: #FFE082;
+  --bhagwa-bright: #FF5722;
+  --bhagwa-saffron: #FF9800;
+  --bhagwa-deep: #E65100;
+  --card-bg: rgba(45, 12, 2, 0.65);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+/* Animated Vibrant Bhagwa Background */
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #FF3D00, #FF9800, #E65100, #DD2C00, #FF6D00);
+  background-size: 400% 400%;
+  animation: bhagwaBgAnimation 10s ease infinite;
+  position: relative;
+}
+
+@keyframes bhagwaBgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Ambient Pulsing Glow Overlay */
+.ambient-glow {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(255, 224, 130, 0.45) 0%, rgba(255, 109, 0, 0.25) 45%, transparent 70%);
+  border-radius: 50%;
+  animation: pulseGlow 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Overlapping Floating Particles Container */
+.ram-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Overlapping floating animation */
+.ram {
+  position: absolute;
+  color: #FFF8E1;
+  font-weight: 900;
+  white-space: nowrap;
+  text-shadow: 0 0 18px rgba(255, 61, 0, 0.9), 0 0 8px rgba(255, 236, 179, 1);
+  animation: floatOverlapping linear forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes floatOverlapping {
+  0% {
+    transform: translateY(105vh) translateX(0px) rotate(-8deg) scale(0.85);
+    opacity: 0;
+  }
+  10% { opacity: 0.95; }
+  50% {
+    transform: translateY(50vh) translateX(35px) rotate(4deg) scale(1.1);
+  }
+  90% { opacity: 0.95; }
+  100% {
+    transform: translateY(-15vh) translateX(-20px) rotate(-5deg) scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* Main Card Container */
+.container {
+  position: relative;
+  z-index: 5;
+  width: 380px;
+  padding: 30px 25px;
+  border-radius: 28px;
+  background: var(--card-bg);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1.5px solid rgba(255, 224, 130, 0.6);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 45px rgba(255, 109, 0, 0.5),
+    inset 0 0 20px rgba(255, 224, 130, 0.3);
+  text-align: center;
+  transition: transform 0.15s ease-out;
+}
+
+.header-icon {
+  font-size: 34px;
+  display: inline-block;
+  filter: drop-shadow(0 0 10px rgba(255, 224, 130, 0.9));
+  animation: slowBounce 3s ease-in-out infinite;
+}
+
+@keyframes slowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 900;
+  background: linear-gradient(180deg, #FFFFFF 10%, #FFE082 50%, #FF9800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 2px;
+  letter-spacing: 1.5px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.sub {
+  color: #ffcc80;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+/* Mala Info Tracker */
+.mala-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 109, 0, 0.35);
+  border: 1px solid rgba(255, 224, 130, 0.6);
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: var(--primary-gold);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(255, 109, 0, 0.3);
+}
+
+/* Counter Dial */
+.counter-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 25px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #FFF59D, #FFB74D, #FF3D00, #DD2C00);
+  box-shadow: 0 0 30px rgba(255, 109, 0, 0.8);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.counter {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(60, 15, 0, 0.95) 0%, rgba(25, 5, 0, 0.98) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 800;
+  color: #FFF;
+  text-shadow: 0 0 18px rgba(255, 224, 130, 0.9);
+  border: 1px solid rgba(255, 224, 130, 0.4);
+  cursor: pointer;
+  transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.counter:active {
+  transform: scale(0.95);
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn {
+  flex: 1;
+  padding: 14px 10px;
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: translateY(2px) scale(0.97);
+}
+
+.btn-dec {
+  background: linear-gradient(135deg, #7c1c1c, #4a0000);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+}
+
+.btn-reset {
+  background: linear-gradient(135deg, #424242, #1f1f1f);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e0e0e0;
+}
+
+.btn-inc {
+  background: linear-gradient(135deg, #FF6D00, #DD2C00);
+  border: 1px solid rgba(255, 224, 130, 0.7);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(221, 44, 0, 0.6);
+}
+
+.btn-inc:hover {
+  box-shadow: 0 6px 25px rgba(255, 109, 0, 0.9);
+}
+
+.footer {
+  margin-top: 22px;
+  color: var(--primary-gold);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.95;
+  text-shadow: 0 0 8px rgba(255, 152, 0, 0.5);
+}
+
+.tip {
+  font-size: 11px;
+  color: rgba(255, 224, 130, 0.8);
+  margin-top: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient-glow"></div>
+<div class="ram-bg" id="ramBg"></div>
+
+<div class="container" id="card">
+    <div class="header-icon">🚩</div>
+    <h1 class="title">राम राम</h1>
+    <p class="sub">Spiritual Counter</p>
+
+    <div class="mala-badge">
+      📿 Mala Completed: <span id="malaCount">0</span> (108 Chants)
+    </div>
+
+    <div class="counter-wrapper">
+      <div class="counter-ring"></div>
+      <div class="counter" id="count" onclick="increment()">0</div>
+    </div>
+
+    <!-- Corrected Button Layout: Negative on Left, Positive on Right -->
+    <div class="buttons">
+      <button class="btn btn-dec" onclick="decrement()" title="Decrease Count">Negative</button>
+      <button class="btn btn-reset" onclick="resetCounter()" title="Reset Counter">Reset</button>
+      <button class="btn btn-inc" onclick="increment()" title="Increase Count">Positive</button>
+    </div>
+
+    <div class="footer">🙏 Jai Shri Ram 🙏</div>
+    <div class="tip">Tip: Press [Spacebar] or tap circle to chant</div>
+</div>
+
+<script>
+let count = 0;
+const countEl = document.getElementById("count");
+const malaEl = document.getElementById("malaCount");
+
+function update() {
+  countEl.textContent = count;
+  const malas = Math.floor(count / 108);
+  malaEl.textContent = malas;
+
+  countEl.animate([
+    { transform: "scale(0.85)", filter: "brightness(1.5)" },
+    { transform: "scale(1.1)", filter: "brightness(1.2)" },
+    { transform: "scale(1)", filter: "brightness(1)" }
+  ], {
+    duration: 180,
+    easing: "ease-out"
+  });
+}
+
+function increment() {
+  count++;
+  update();
+}
+
+function decrement() {
+  if (count > 0) {
+    count--;
+    update();
+  }
+}
+
+function resetCounter() {
+  if (count === 0) return;
+  if (confirm("Reset chant counter to 0?")) {
+    count = 0;
+    update();
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space') {
+    e.preventDefault();
+    increment();
+  }
+});
+
+/* Overlapping 'राम राम' Background Generator */
+const bg = document.getElementById("ramBg");
+const mantras = ["🚩 राम राम", "जय श्री राम", "श्री राम", "🚩 जय श्री राम", "राम", "जय राम"];
+
+function createRam() {
+  const span = document.createElement("span");
+  span.className = "ram";
+  span.innerText = mantras[Math.floor(Math.random() * mantras.length)];
+
+  // Overlap parameters and positions
+  span.style.left = (Math.random() * 92) + "vw";
+  span.style.fontSize = (18 + Math.random() * 30) + "px"; 
+  span.style.animationDuration = (5 + Math.random() * 7) + "s";
+  span.style.zIndex = Math.floor(Math.random() * 4);
+  span.style.opacity = (0.5 + Math.random() * 0.5).toString();
+
+  bg.appendChild(span);
+
+  setTimeout(() => {
+    span.remove();
+  }, 12000);
+}
+
+// Initial density burst
+for (let i = 0; i < 35; i++) {
+  setTimeout(createRam, i * 120);
+}
+
+// Continuous flow
+setInterval(createRam, 220);
+</script>
+
+</body>
+</html>

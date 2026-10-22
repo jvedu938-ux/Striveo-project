@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner Dashboard | STRIVEO</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#111;
+color:#fff;
+min-height:100vh;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#181818;
+border-bottom:2px solid gold;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:gold;
+}
+
+nav a{
+text-decoration:none;
+color:#fff;
+margin-left:20px;
+font-size:16px;
+transition:.3s;
+}
+
+nav a:hover{
+color:gold;
+}
+
+.dashboard{
+padding:40px 8%;
+}
+
+.dashboard h1{
+font-size:38px;
+color:gold;
+margin-bottom:10px;
+}
+
+.dashboard p{
+color:#ccc;
+margin-bottom:30px;
+font-size:18px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#1d1d1d;
+padding:25px;
+border-radius:15px;
+border:1px solid #333;
+transition:.3s;
+box-shadow:0 0 10px rgba(255,215,0,.15);
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:gold;
+box-shadow:0 0 20px rgba(255,215,0,.35);
+}
+
+.card h2{
+color:gold;
+margin-bottom:15px;
+font-size:24px;
+}
+
+.card p{
+font-size:15px;
+line-height:1.7;
+color:#ddd;
+margin-bottom:20px;
+}
+
+.card button{
+padding:12px 25px;
+border:none;
+border-radius:8px;
+background:gold;
+color:#000;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.card button:hover{
+background:#ffcc00;
+transform:scale(1.05);
+}
+
+.summary{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin:40px 0;
+}
+
+.box{
+background:#1c1c1c;
+padding:20px;
+border-radius:12px;
+text-align:center;
+border:1px solid #333;
+}
+
+.box h3{
+font-size:18px;
+color:#ccc;
+margin-bottom:10px;
+}
+
+.box h2{
+font-size:32px;
+color:gold;
+}
+
+.actions{
+margin-top:40px;
+text-align:center;
+}
+
+.actions button{
+padding:15px 35px;
+margin:10px;
+border:none;
+border-radius:8px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.homeBtn{
+background:#333;
+color:#fff;
+}
+
+.homeBtn:hover{
+background:#444;
+}
+
+.logoutBtn{
+background:gold;
+color:#000;
+}
+
+.logoutBtn:hover{
+background:#ffcc00;
+}
+
+footer{
+margin-top:50px;
+padding:20px;
+text-align:center;
+background:#181818;
+border-top:2px solid gold;
+color:#aaa;
+}
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+}
+
+nav{
+margin-top:15px;
+}
+
+nav a{
+display:inline-block;
+margin:8px;
+}
+
+.dashboard h1{
+font-size:30px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+STRIVEO
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="project.html">Projects</a>
+<a href="#">Profile</a>
+<a href="index.html">Logout</a>
+<a href="setting.html">⚙ Settings</a>
+</nav>
+
+</header>
+
+<section class="dashboard">
+
+<h1>Partner Dashboard</h1>
+
+<p>
+Welcome Partner! Manage your projects, clients, earnings and performance from one place.
+</p>
+
+<div class="summary">
+
+<div class="box">
+<h3>Total Projects</h3>
+<h2 id="projects">12</h2>
+</div>
+
+<div class="box">
+<h3>Clients</h3>
+<h2 id="clients">8</h2>
+</div>
+
+<div class="box">
+<h3>Earnings</h3>
+<h2 id="earnings">₹58K</h2>
+</div>
+
+<div class="box">
+<h3>Completed</h3>
+<h2 id="completed">9</h2>
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h2>📁 Projects</h2>
+<p>View all running and completed projects.</p>
+<button onclick="openProjects()">Open</button>
+</div>
+
+<div class="card">
+<h2>👥 Clients</h2>
+<p>Manage client details and communication.</p>
+<button onclick="manageClients()">Open</button>
+</div>
+
+<div class="card">
+<h2>💰 Earnings</h2>
+<p>Track payment history and total income.</p>
+<button onclick="viewEarnings()">Open</button>
+</div>
+
+<div class="card">
+<h2>⚙ Settings</h2>
+<p>Update your partner profile and preferences.</p>
+<button onclick="settings()">Open</button>
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="homeBtn" onclick="goBack()">
+Back
+</button>
+
+<button class="logoutBtn" onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 STRIVEO | Partner Dashboard
+
+</footer>
+
+<script>
+
+function openProjects(){
+window.location.href="project.html";
+}
+
+function manageClients(){
+window.location.href="client.html";
+}
+
+function viewEarnings(){
+alert("Earnings Module Coming Soon!");
+}
+
+function settings(){
+alert("Settings Module Coming Soon!");
+}
+
+function goBack(){
+window.location.href="partner.html";
+}
+
+function logout(){
+alert("Logged Out Successfully!");
+window.location.href="index.html";
+}
+
+</script>
+
+</body>
+</html>

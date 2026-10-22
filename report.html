@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report | STRIVEO</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#111;color:#fff;min-height:100vh}
+header{background:#0f0f0f;border-bottom:2px solid #d4af37;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-size:26px;font-weight:bold;color:#d4af37}
+nav a{color:#fff;text-decoration:none;margin-left:25px;font-size:15px}
+nav a:hover,nav a.active{color:#d4af37}
+.hero{text-align:center;padding:55px 20px 35px}
+.hero h1{font-size:38px;color:#d4af37;margin-bottom:12px}
+.hero p{color:#bbb;font-size:16px}
+.container{width:90%;max-width:1100px;margin:20px auto 50px}
+.card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:25px;margin-bottom:22px;box-shadow:0 5px 20px rgba(0,0,0,.3)}
+.card h2{color:#d4af37;margin-bottom:20px;border-bottom:1px solid #333;padding-bottom:12px}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.info{background:#222;padding:15px;border-radius:8px}
+.info span{display:block;color:#999;font-size:13px;margin-bottom:6px}
+.info strong{font-size:16px;color:#fff}
+.progress-box{margin:20px 0}
+.progress-title{display:flex;justify-content:space-between;margin-bottom:8px}
+.progress{height:12px;background:#333;border-radius:20px;overflow:hidden}
+.progress-bar{height:100%;width:80%;background:#d4af37;border-radius:20px}
+.status{display:inline-block;padding:8px 15px;border-radius:20px;background:#183d22;color:#5ee37a;font-weight:bold}
+table{width:100%;border-collapse:collapse}
+th,td{padding:14px;text-align:left;border-bottom:1px solid #333}
+th{color:#d4af37}
+td{color:#ddd}
+textarea{width:100%;min-height:120px;background:#222;color:#fff;border:1px solid #444;border-radius:8px;padding:12px;resize:vertical;outline:none}
+textarea:focus{border-color:#d4af37}
+.buttons{text-align:center;margin-top:25px}
+button{border:none;padding:12px 22px;border-radius:7px;background:#d4af37;color:#111;font-weight:bold;cursor:pointer;margin:5px}
+button:hover{background:#fff}
+footer{text-align:center;padding:25px;color:#777;border-top:1px solid #333}
+@media(max-width:700px){
+header{padding:15px 5%;flex-direction:column;gap:15px}
+nav a{margin:0 7px}
+.hero h1{font-size:30px}
+.info-grid{grid-template-columns:1fr}
+table{font-size:13px}
+th,td{padding:9px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">STRIVEO</div>
+<nav>
+<a href="partner.html">Dashboard</a>
+<a href="project.html">Projects</a>
+<a href="payment.html">Payment</a>
+<a href="report.html" class="active">Report</a>
+<a href="setting.html"class="active"> Settings</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Project Report</h1>
+<p>Track your project progress, payment and final report</p>
+</section>
+
+<div class="container">
+
+<div class="card">
+<h2>Project Information</h2>
+<div class="info-grid">
+<div class="info">
+<span>Project Name</span>
+<strong>STRIVEO Website</strong>
+</div>
+<div class="info">
+<span>Project ID</span>
+<strong>STR-2026-001</strong>
+</div>
+<div class="info">
+<span>Client</span>
+<strong>STRIVEO Client</strong>
+</div>
+<div class="info">
+<span>Partner</span>
+<strong>STRIVEO Partner</strong>
+</div>
+<div class="info">
+<span>Start Date</span>
+<strong>01 August 2026</strong>
+</div>
+<div class="info">
+<span>Project Status</span>
+<strong class="status">Completed</strong>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Project Progress</h2>
+<div class="progress-box">
+<div class="progress-title">
+<span>Overall Progress</span>
+<span>100%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:100%"></div>
+</div>
+</div>
+
+<div class="progress-box">
+<div class="progress-title">
+<span>Design & Development</span>
+<span>100%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:100%"></div>
+</div>
+</div>
+
+<div class="progress-box">
+<div class="progress-title">
+<span>Testing</span>
+<span>100%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:100%"></div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Work Summary</h2>
+<table>
+<tr>
+<th>Task</th>
+<th>Status</th>
+<th>Progress</th>
+</tr>
+<tr>
+<td>Project Setup</td>
+<td>Completed</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Frontend Development</td>
+<td>Completed</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Payment Integration</td>
+<td>Completed</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>Completed</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Final Report</td>
+<td>Completed</td>
+<td>100%</td>
+</tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Payment Summary</h2>
+<div class="info-grid">
+<div class="info">
+<span>Total Project Amount</span>
+<strong>₹10,000</strong>
+</div>
+<div class="info">
+<span>Amount Paid</span>
+<strong>₹10,000</strong>
+</div>
+<div class="info">
+<span>Payment Status</span>
+<strong class="status">Paid</strong>
+</div>
+<div class="info">
+<span>Payment Method</span>
+<strong>Online Payment</strong>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Final Report</h2>
+<p style="color:#bbb;line-height:1.7;margin-bottom:15px">
+The STRIVEO project has been successfully completed. The website includes
+project management, partner dashboard, project details, payment management
+and reporting functionality. All major development and testing activities
+have been completed successfully.
+</p>
+
+<textarea id="feedback" placeholder="Enter your final project remarks or feedback..."></textarea>
+
+<div class="buttons">
+<button onclick="saveReport()">Save Report</button>
+<button onclick="window.print()">Print Report</button>
+<button onclick="goDashboard()">Back to Dashboard</button>
+</div>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 STRIVEO | Project Management Platform</p>
+</footer>
+
+<script>
+function saveReport(){
+let feedback=document.getElementById("feedback").value.trim();
+if(feedback===""){
+alert("Please enter your final report remarks.");
+return;
+}
+localStorage.setItem("striveoReport",feedback);
+alert("Report saved successfully!");
+}
+
+function goDashboard(){
+window.location.href="partner.html";
+}
+
+window.onload=function(){
+let saved=localStorage.getItem("striveoReport");
+if(saved){
+document.getElementById("feedback").value=saved;
+}
+};
+</script>
+
+</body>
+</html>
